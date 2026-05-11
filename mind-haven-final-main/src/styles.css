@@ -1,0 +1,241 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,300;1,9..40,400&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&display=swap");
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-ring-offset-background: var(--background);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --font-display: "Cormorant Garamond", ui-serif, Georgia, serif;
+  --font-sans: "DM Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Cormorant Garamond", ui-serif, Georgia, serif;
+}
+
+/* Sage psychotherapy — warm cream paper, sage greens, editorial serif */
+:root {
+  --radius: 1.25rem;
+  --background: oklch(0.965 0.018 95);          /* warm cream paper */
+  --foreground: oklch(0.28 0.04 145);           /* deep forest ink */
+  --card: oklch(0.985 0.012 95);
+  --card-foreground: oklch(0.28 0.04 145);
+  --popover: oklch(0.985 0.012 95);
+  --popover-foreground: oklch(0.28 0.04 145);
+  --primary: oklch(0.55 0.07 142);              /* sage green */
+  --primary-foreground: oklch(0.97 0.015 95);
+  --secondary: oklch(0.88 0.04 130);            /* light sage */
+  --secondary-foreground: oklch(0.28 0.04 145);
+  --muted: oklch(0.93 0.02 110);
+  --muted-foreground: oklch(0.45 0.04 140);
+  --accent: oklch(0.72 0.07 138);               /* mid sage */
+  --accent-foreground: oklch(0.22 0.04 145);
+  --destructive: oklch(0.55 0.18 25);
+  --destructive-foreground: oklch(0.97 0.01 25);
+  --border: oklch(0.85 0.03 120);
+  --input: oklch(0.92 0.02 110);
+  --ring: oklch(0.55 0.07 142);
+
+  /* Custom semantic tokens */
+  --paper: oklch(0.965 0.018 95);
+  --paper-warm: oklch(0.94 0.025 90);
+  --sage-deep: oklch(0.38 0.06 145);
+  --sage: oklch(0.55 0.07 142);
+  --sage-soft: oklch(0.78 0.06 138);
+  --sage-pale: oklch(0.88 0.04 130);
+  --ink: oklch(0.25 0.04 145);
+  --gradient-primary: linear-gradient(135deg, oklch(0.55 0.07 142), oklch(0.42 0.07 145));
+  --gradient-paper: linear-gradient(180deg, oklch(0.97 0.018 95), oklch(0.94 0.025 90));
+
+  --shadow-soft: 0 20px 60px -25px oklch(0.30 0.06 145 / 0.18);
+  --shadow-card: 0 10px 30px -15px oklch(0.30 0.06 145 / 0.15);
+  --shadow-glow: 0 0 80px -10px oklch(0.55 0.07 142 / 0.25);
+  --shadow-teal: 0 0 80px -10px oklch(0.72 0.07 138 / 0.20);
+
+  /* Back-compat tokens used across dashboard pages */
+  --lamp: oklch(0.55 0.07 142);
+  --teal: oklch(0.42 0.07 145);
+  --glass: oklch(0.985 0.012 95 / 0.7);
+  --glass-border: oklch(0.55 0.07 142 / 0.18);
+
+  --chart-1: oklch(0.55 0.07 142);
+  --chart-2: oklch(0.72 0.07 138);
+  --chart-3: oklch(0.42 0.07 145);
+  --chart-4: oklch(0.85 0.05 120);
+  --chart-5: oklch(0.62 0.10 95);
+  --sidebar: var(--card);
+  --sidebar-foreground: var(--foreground);
+  --sidebar-primary: var(--primary);
+  --sidebar-primary-foreground: var(--primary-foreground);
+  --sidebar-accent: var(--accent);
+  --sidebar-accent-foreground: var(--accent-foreground);
+  --sidebar-border: var(--border);
+  --sidebar-ring: var(--ring);
+}
+
+.dark {
+  --background: oklch(0.28 0.04 145);
+  --foreground: oklch(0.96 0.018 95);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+  html {
+    font-family: var(--font-sans);
+  }
+  body {
+    background: var(--gradient-paper);
+    background-attachment: fixed;
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  h1, h2, h3, h4, .font-display, .font-serif {
+    font-family: var(--font-display);
+    font-weight: 400;
+    letter-spacing: -0.005em;
+    line-height: 1.15;
+  }
+  ::selection {
+    background: oklch(0.55 0.07 142 / 0.25);
+    color: var(--color-foreground);
+  }
+}
+
+@layer utilities {
+  .shadow-soft { box-shadow: var(--shadow-soft); }
+  .shadow-card { box-shadow: var(--shadow-card); }
+  .shadow-glow { box-shadow: var(--shadow-glow); }
+  .shadow-teal { box-shadow: var(--shadow-teal); }
+
+  .text-ink { color: var(--ink); }
+  .text-sage { color: var(--sage); }
+  .text-sage-deep { color: var(--sage-deep); }
+  .text-lamp { color: var(--lamp); }
+  .text-teal { color: var(--teal); }
+
+  .bg-paper { background: var(--paper); }
+  .bg-paper-warm { background: var(--paper-warm); }
+  .bg-sage { background: var(--sage); }
+  .bg-sage-deep { background: var(--sage-deep); }
+  .bg-sage-soft { background: var(--sage-soft); }
+  .bg-sage-pale { background: var(--sage-pale); }
+
+  .border-sage { border-color: var(--sage); }
+  .border-sage-soft { border-color: var(--sage-soft); }
+
+  .glass {
+    background: var(--glass);
+    backdrop-filter: blur(20px) saturate(1.2);
+    -webkit-backdrop-filter: blur(20px) saturate(1.2);
+    border: 1px solid var(--glass-border);
+  }
+  .glass-card {
+    background: var(--glass);
+    backdrop-filter: blur(20px) saturate(1.2);
+    -webkit-backdrop-filter: blur(20px) saturate(1.2);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius);
+    padding: 2rem;
+  }
+  .gradient-text {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .gradient-text {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .rule {
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--color-border), transparent);
+  }
+
+  .smallcaps {
+    font-family: var(--font-sans);
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    font-size: 0.72rem;
+    font-weight: 500;
+  }
+
+  .prose-journal {
+    font-family: var(--font-display);
+    font-size: 1.15rem;
+    line-height: 1.8;
+    letter-spacing: 0.005em;
+  }
+
+  .animate-fade-in { animation: fade-in 1s ease-out both; }
+  .animate-rise { animation: rise 1.2s cubic-bezier(0.16, 0.8, 0.2, 1) both; }
+  .animate-slow { animation: fade-in 1.6s ease-out both; }
+
+  @keyframes fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  @keyframes rise {
+    from { opacity: 0; transform: translateY(16px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes breathe {
+    0%, 100% { opacity: 0.4; }
+    50% { opacity: 1; }
+  }
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+  }
+  @keyframes shimmer {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+  }
+}
